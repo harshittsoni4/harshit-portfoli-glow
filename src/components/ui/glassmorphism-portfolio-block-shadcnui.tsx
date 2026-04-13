@@ -4,12 +4,11 @@ import { motion, Variants } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowUpRight,
+  Dribbble,
   Github,
   Linkedin,
-  ArrowDown,
-  Mail,
+  Twitter,
 } from "lucide-react";
-import profileImg from "@/assets/harshit-profile.jpeg";
 
 type Highlight = {
   title: string;
@@ -25,33 +24,45 @@ type SocialLink = {
 
 const highlights: Highlight[] = [
   {
-    title: "Core Stack",
+    title: "Collaborations",
     description:
-      "React.js, Python, AWS (EC2, S3, Lambda), DevOps & FinOps — building scalable, cost-efficient systems.",
+      "Linear, Framer, Gamma, Clearbit, and early-stage founders crafting premium launches.",
   },
   {
-    title: "Latest Project",
+    title: "Latest drop",
     description:
-      "NeuraCare — an interactive mental health assessment app with React.js frontend and secure backend logic.",
+      "Aurora OS motion system · 47 reusable blueprints, adaptive tokens, and launch storyboard.",
   },
   {
     title: "Availability",
     description:
-      "Open to internships, freelance projects, and collaborative opportunities worldwide.",
+      "2 advisory spots for Q1 · Remote friendly across EU & US time zones.",
   },
 ];
 
 const socialLinks: SocialLink[] = [
   {
+    label: "Twitter",
+    handle: "@caspermotions",
+    href: "https://x.com/caspermotions",
+    icon: Twitter,
+  },
+  {
     label: "LinkedIn",
-    handle: "harshit-soni",
-    href: "https://linkedin.com/in/harshit-soni-780b7a356",
+    handle: "Casper Lightman",
+    href: "https://linkedin.com/in/casperlightman",
     icon: Linkedin,
   },
   {
+    label: "Dribbble",
+    handle: "caspermotion",
+    href: "https://dribbble.com/caspermotion",
+    icon: Dribbble,
+  },
+  {
     label: "GitHub",
-    handle: "your-username",
-    href: "https://github.com/your-username",
+    handle: "casper-studio",
+    href: "https://github.com/casper-studio",
     icon: Github,
   },
 ];
@@ -79,17 +90,15 @@ const itemVariants: Variants = {
   },
 };
 
-export default function Hero() {
+export function GlassmorphismPortfolioBlock() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 pt-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24">
       <div className="container mx-auto px-6">
         <div className="relative rounded-3xl overflow-hidden">
-          {/* Glass gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-card/80 to-card/60 backdrop-blur-2xl" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(var(--primary)/0.08),transparent_60%)]" />
 
           <div className="relative z-10 grid gap-10 p-8 md:p-12 lg:grid-cols-[1fr_340px] lg:gap-16">
-            {/* Left column - Main content */}
             <motion.div
               className="flex flex-col justify-center"
               initial="hidden"
@@ -107,16 +116,16 @@ export default function Hero() {
 
               <motion.div variants={itemVariants} className="space-y-4">
                 <h1 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-                  Harshit Soni, Full-Stack Developer & Cloud Architect
+                  Casper Lightman, Product Designer & Motion Director
                 </h1>
                 <p className="max-w-xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-                  Motivated Computer Science and Engineering student with a strong foundation in
-                  building scalable web applications and optimizing cloud environments using
-                  React.js, Python, AWS, and DevOps methodologies.
+                  Principal product designer pairing narrative motion with
+                  premium SaaS brands. Casper leads founders and product teams
+                  through expressive design systems that convert curiosity into
+                  momentum.
                 </p>
               </motion.div>
 
-              {/* Highlights grid */}
               <motion.div
                 variants={listVariants}
                 className="mt-10 grid gap-4 sm:grid-cols-3"
@@ -137,31 +146,19 @@ export default function Hero() {
                 ))}
               </motion.div>
 
-              {/* CTA Buttons */}
-              <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-3">
+              <motion.div variants={itemVariants} className="mt-8">
                 <Button
-                  asChild
-                  className="h-12 gap-2 rounded-full px-8 text-sm uppercase tracking-[0.25em] transition-all hover:shadow-lg"
+                  onClick={() =>
+                    window.open("https://casper.studio/case-studies", "_blank")
+                  }
+                  className="h-12 w-full gap-2 rounded-full px-8 text-sm uppercase tracking-[0.25em] transition-all hover:shadow-lg sm:w-auto"
                 >
-                  <a href="#projects">
-                    View My Work
-                    <ArrowDown className="h-4 w-4" />
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="h-12 gap-2 rounded-full border-glass-border px-8 text-sm uppercase tracking-[0.25em] hover:border-primary/50 hover:text-primary"
-                >
-                  <a href="#contact">
-                    Contact Me
-                    <Mail className="h-4 w-4" />
-                  </a>
+                  View case studies
+                  <ArrowUpRight className="h-4 w-4" />
                 </Button>
               </motion.div>
             </motion.div>
 
-            {/* Right column - Profile card */}
             <motion.div
               className="flex items-center justify-center lg:justify-end"
               initial={{ opacity: 0, x: 30 }}
@@ -170,27 +167,21 @@ export default function Hero() {
             >
               <div className="glass-card w-full max-w-xs rounded-2xl p-6">
                 <div className="flex flex-col items-center text-center">
-                  {/* Avatar with glow */}
                   <div className="relative mb-5">
                     <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 to-primary/10 blur-md" />
-                    <img
-                      src={profileImg}
-                      alt="Harshit Soni"
-                      className="relative h-28 w-28 rounded-full object-cover ring-2 ring-glass-border"
-                    />
+                    <div className="relative h-28 w-28 rounded-full bg-muted ring-2 ring-glass-border" />
                   </div>
 
-                  <h2 className="text-lg font-bold text-foreground">Harshit Soni</h2>
+                  <h2 className="text-lg font-bold text-foreground">Casper Lightman</h2>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Full-Stack Developer · Cloud Architect
+                    Product Designer · Motion Director
                   </p>
                   <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                    Building scalable systems and optimizing cloud infrastructure with modern
-                    technologies and DevOps best practices.
+                    Partnering with future-facing teams to choreograph
+                    interfaces that feel cinematic yet effortless.
                   </p>
                 </div>
 
-                {/* Social links */}
                 <div className="mt-6 space-y-2">
                   {socialLinks.map((social) => {
                     const Icon = social.icon;
