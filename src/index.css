@@ -91,6 +91,6 @@
   }
   .glow-dot {
     @apply w-2 h-2 rounded-full bg-primary;
-    box-shadow: 0 0 12px hsl(199 89% 48% / 0.6);
+    box-shadow: 0 0 12px hsl(0 0% 100% / 0.4);
   }
 }
